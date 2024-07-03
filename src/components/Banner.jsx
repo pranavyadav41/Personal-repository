@@ -64,7 +64,7 @@ export const Banner = () => {
                   </span>
                 </h1>
                 <p className="text-[#B8B8B8] text-lg tracking-wide leading-relaxed w-11/12 mb-12">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                I'm a self-taught MERN stack developer driven by curiosity and a love for crafting innovative web applications. My journey as a developer has been driven by an insatiable curiosity and a strong desire to create meaningful and innovative web applications.
                 </p>
                 <button 
                   onClick={() => console.log('connect')}
