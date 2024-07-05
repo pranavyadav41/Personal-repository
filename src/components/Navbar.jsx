@@ -150,7 +150,7 @@ export const NavBar = () => {
               mobile
             />
 
-            <div className="flex justify-center space-x-4 mt-4">
+            <div className="flex justify-center  mt-4">
               <SocialIcon href="#" src={navIcon1} />
               <SocialIcon href="#" src={navIcon2} />
               <SocialIcon href="#" src={navIcon3} />
@@ -190,13 +190,15 @@ const SocialIcon = ({ href, src }) => (
       flex items-center justify-center
       w-10 h-10
       rounded-full
-      border border-white
+      border border-gray-500
       transition-all duration-300 ease-in-out
       group
       overflow-hidden
+       bg-gray-200
+        bg-opacity-10
     "
   >
-    <img src={src} alt="" className="h-5 w-5 relative z-10 group-hover:invert" />
+    <img src={src} alt="" className="h-4 w-4 relative z-10 group-hover:invert" />
     <span className="
       absolute inset-0 
       w-0 group-hover:w-full 
