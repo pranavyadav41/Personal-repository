@@ -41,7 +41,7 @@ export const NavBar = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-3">
-        <div className="flex justify-end items-center mr-20 mt-3">
+        <div className={`flex justify-end items-center mr-20 ${scrolled?"mt-0" :"mt-3"}`}>
           <Link to="/" className="flex items-center">
             {/* <img src={logo} alt="Logo" className="h-10" />
             <span className="ml-2 text-xl font-bold text-gray-800">Your Brand</span> */}
