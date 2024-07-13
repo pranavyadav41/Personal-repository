@@ -1,37 +1,41 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLink } from "react-icons/fa";
 
-const ProjectCard = ({ title, description, technologies, image, githubLink, liveLink }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    className="bg-gray-900 rounded-md border border-gray-600 overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 mb-12"
-  >
-    <img src={image} alt={title} className="w-full h-64 object-cover" />
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-2xl font-bold text-white">{title}</h3>
-        <div className="flex space-x-4">
-          <a href={githubLink} target="_blank" rel="noopener noreferrer">
-            <FaGithub size={24} className="text-gray-400 hover:text-white transition-colors" />
-          </a>
-          <a href={liveLink} target="_blank" rel="noopener noreferrer">
-            <FaLink size={24} className="text-gray-400 hover:text-white transition-colors" />
-          </a>
+const ProjectCard = ({ title, description, technologies, image, githubLink, liveLink, index }) => {
+  const initialX = index % 2 === 0 ? -100 : 100; // Alternate initial X position
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: initialX }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      className="bg-gray-900 rounded-md border border-gray-600 overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 mb-12"
+    >
+      <img src={image} alt={title} className="w-full h-64 object-cover" />
+      <div className="p-6">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-2xl font-bold text-white">{title}</h3>
+          <div className="flex space-x-4">
+            <a href={githubLink} target="_blank" rel="noopener noreferrer">
+              <FaGithub size={24} className="text-gray-400 hover:text-white transition-colors" />
+            </a>
+            <a href={liveLink} target="_blank" rel="noopener noreferrer">
+              <FaLink size={24} className="text-gray-400 hover:text-white transition-colors" />
+            </a>
+          </div>
+        </div>
+        <p className="text-gray-400 mb-4">{description}</p>
+        <div className="flex flex-wrap gap-2">
+          {technologies.map((tech, index) => (
+            <span key={index} className="px-3 py-1  bg-gray-800 text-gray-300 rounded-full text-sm">
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
-      <p className="text-gray-400 mb-4">{description}</p>
-      <div className="flex flex-wrap gap-2">
-        {technologies.map((tech, index) => (
-          <span key={index} className="px-3 py-1  bg-gray-800 text-gray-300 rounded-full text-sm">
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 const MiniProjectCard = ({ title, description, technologies, githubLink }) => (
   <motion.div
@@ -86,20 +90,20 @@ export const Works = () => {
     },
     {
       title: "Chatroom Application",
-      description: "Designed and developed a real world world chatroom application",
+      description: "Designed and developed a real world world chatroom application using Node js,socket io,Javascript,html and css.Users can enter the chat room and chat each other.Notifications added when users enter and leave chat room.",
       technologies: ["Node js","socket io","Javascript","html","css"],
       githubLink: "https://github.com/yourusername/todo-list"
     },
     {
       title: "OLX Clone",
-      description: "Designed and successfully cloned the Olx website.",
-      technologies: ["React Js", "Tailwind CSS"],
+      description: "Build an OLX Clone using React.js.Integrated Firebase Firestore for primary data storage.Added product listing functionality to help users easily add products with images for product listings.",
+      technologies: ["React Js", "Tailwind CSS","Firebase"],
       githubLink: "https://github.com/yourusername/portfolio"
     }
   ];
 
   return (
-    <div className="   min-h-screen py-20"  style={{backgroundImage:"url(../assets/img/color-sharp.png)"}}>
+    <div className="min-h-screen py-20"  style={{backgroundImage:"url(../assets/img/color-sharp.png)"}} id="projects">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -115,7 +119,7 @@ export const Works = () => {
 
         <div className="grid md:grid-cols-2 gap-12 mb-1">
           {mainProjects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            <ProjectCard key={index} {...project} index={index} />
           ))}
         </div>
 

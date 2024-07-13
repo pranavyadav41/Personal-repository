@@ -41,13 +41,13 @@ export const NavBar = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-3">
-        <div className={`flex justify-end items-center mr-20 ${scrolled?"mt-0" :"mt-3"}`}>
+      <div className={`flex justify-between items-center ${scrolled ? "md:mt-0" : "md:mt-5"} md:mr-16`}>
           <Link to="/" className="flex items-center">
-            {/* <img src={logo} alt="Logo" className="h-10" />
-            <span className="ml-2 text-xl font-bold text-gray-800">Your Brand</span> */}
+           
           </Link>
 
-          <div className="hidden md:flex items-center space-x-6 md:gap-4 text-lg">
+          <div className="hidden lg:flex items-center space-x-5 text-lg">
+            <div className="hidden lg:flex space-x-6 lg:gap-5 lg:mr-5">
             <NavLink
               to="#home"
               active={activeLink === "home"}
@@ -69,45 +69,26 @@ export const NavBar = () => {
             >
               Projects
             </NavLink>
+            </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
               <SocialIcon href="#" src={navIcon1} />
               <SocialIcon href="#" src={navIcon2} />
               <SocialIcon href="#" src={navIcon3} />
             </div>
 
             <HashLink to="#connect">
-              <button
-                className="
-  font-bold
-  text-white
-  border border-white
-  py-[15px] px-[28px]
-  text-lg
-  bg-transparent
-  transition-all duration-300 ease-in-out
-  relative
-  group
-  hover:text-[#121212]
-"
-              >
+              <button className="font-bold text-white border border-white py-4 px-6 text-lg bg-transparent transition-all duration-300 ease-in-out relative group hover:text-[#121212]">
                 <span className="relative z-10">Let's Connect</span>
-                <span
-                  className="
-    absolute inset-0 
-    w-0 group-hover:w-full 
-    bg-white 
-    transition-all duration-300 ease-in-out
-    -z-10
-  "
-                ></span>
+                <span className="absolute inset-0 w-0 group-hover:w-full bg-white transition-all duration-300 ease-in-out -z-10"></span>
               </button>
             </HashLink>
           </div>
 
           <button
             onClick={toggleMenu}
-            className="md:hidden text-gray-800 focus:outline-none"
+            className="lg:hidden text-white focus:outline-none"
+            aria-label="Toggle menu"
           >
             <svg
               className="h-6 w-6"
@@ -118,46 +99,46 @@ export const NavBar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path
-                d={
-                  isMenuOpen
-                    ? "M6 18L18 6M6 6l12 12"
-                    : "M4 6h16M4 12h16M4 18h16"
-                }
-              ></path>
+              <path d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
             </svg>
           </button>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden mt-4">
+          <div className="lg:hidden mt-4 bg-black bg-opacity-90 p-4 rounded-lg">
             <NavLink
               to="#home"
               active={activeLink === "home"}
               onClick={() => onUpdateActiveLink("home")}
               mobile
-            />
+            >
+              Home
+            </NavLink>
             <NavLink
               to="#skills"
               active={activeLink === "skills"}
               onClick={() => onUpdateActiveLink("skills")}
               mobile
-            />
+            >
+              Skills
+            </NavLink>
             <NavLink
               to="#projects"
               active={activeLink === "projects"}
               onClick={() => onUpdateActiveLink("projects")}
               mobile
-            />
+            >
+              Projects
+            </NavLink>
 
-            <div className="flex justify-center  mt-4">
+            <div className="flex justify-center space-x-4 mt-4">
               <SocialIcon href="#" src={navIcon1} />
               <SocialIcon href="#" src={navIcon2} />
               <SocialIcon href="#" src={navIcon3} />
             </div>
 
             <HashLink to="#connect" className="block mt-4">
-              <button className="w-full bg-blue-600 text-white px-6 py-2 hover:bg-blue-700 transition-all duration-300">
+              <button className="w-full bg-white text-black px-6 py-2 hover:bg-gray-200 transition-all duration-300">
                 Let's Connect
               </button>
             </HashLink>
@@ -169,33 +150,35 @@ export const NavBar = () => {
 };
 
 const NavLink = ({ to, children, active, onClick, mobile }) => (
-  <Link
+  <HashLink
+    smooth
     to={to}
     className={`
-      ${active ? "text-white " : "text-gray-400"} 
+      ${active ? "text-white" : "text-gray-400"} 
       ${mobile ? "block py-2 text-center" : ""}
       hover:text-blue-600 transition-colors duration-300
     `}
     onClick={onClick}
   >
     {children}
-  </Link>
+  </HashLink>
 );
 
 const SocialIcon = ({ href, src }) => (
   <a
+  
     href={href}
     className="
       relative
       flex items-center justify-center
-      w-10 h-10
+      w-11 h-11
       rounded-full
       border border-gray-500
       transition-all duration-300 ease-in-out
       group
       overflow-hidden
-       bg-gray-200
-        bg-opacity-10
+      bg-gray-200
+      bg-opacity-10
     "
   >
     <img src={src} alt="" className="h-4 w-4 relative z-10 group-hover:invert" />
@@ -208,4 +191,4 @@ const SocialIcon = ({ href, src }) => (
       -z-10
     "></span>
   </a>
-)
+);
