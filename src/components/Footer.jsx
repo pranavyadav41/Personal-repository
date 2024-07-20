@@ -1,9 +1,6 @@
 import React from 'react';
-import { HashLink } from "react-router-hash-link";
-import logo from "../assets/img/logo.svg";
-import navIcon1 from "../assets/img/nav-icon1.svg";
-import navIcon2 from "../assets/img/nav-icon2.svg";
-import navIcon3 from "../assets/img/nav-icon3.svg";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 export const Footer = () => {
   return (
@@ -11,13 +8,13 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-8 md:mb-0">
-            
+            {/* You can add logo or other content here */}
           </div>
           <div className="flex flex-col items-center md:items-end space-y-4 md:mr-5">
             <div className="flex items-center justify-center md:justify-end space-x-4">
-              <SocialIcon href="#" src={navIcon1} alt="LinkedIn" />
-              <SocialIcon href="#" src={navIcon2} alt="Facebook" />
-              <SocialIcon href="#" src={navIcon3} alt="Instagram" />
+              <SocialIcon href="https://linkedin.com/in/pranavyadav41" icon={<FaLinkedin />} />
+              <SocialIcon href="https://github.com/pranavyadav41" icon={<FaGithub />} />
+              <SocialIcon href="https://leetcode.com/u/akpranavyadav/" icon={<SiLeetcode />} />
             </div>
             <p className="text-sm text-[#B8B8B8] font-normal tracking-wider text-center md:text-right">
               © {new Date().getFullYear()} Pranav Yadav. All Rights Reserved.
@@ -29,8 +26,9 @@ export const Footer = () => {
   );
 };
 
-const SocialIcon = ({ href, src, alt }) => (
+const SocialIcon = ({ href, icon }) => (
   <a
+  
     href={href}
     className="
       relative
@@ -47,11 +45,9 @@ const SocialIcon = ({ href, src, alt }) => (
       hover:border-white
     "
   >
-    <img 
-      src={src} 
-      alt={alt} 
-      className="h-5 w-5 relative z-10 transition-all duration-300 ease-in-out group-hover:filter group-hover:invert" 
-    />
+    <span className="text-white text-lg relative z-10 group-hover:text-black">
+      {icon}
+    </span>
     <span className="
       absolute inset-0 
       w-full h-full
@@ -63,3 +59,5 @@ const SocialIcon = ({ href, src, alt }) => (
     "></span>
   </a>
 );
+
+export default Footer;

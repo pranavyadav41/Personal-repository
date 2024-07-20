@@ -3,6 +3,8 @@ import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -66,12 +68,13 @@ export const Banner = () => {
                 <p className="text-[#B8B8B8] text-lg tracking-wide leading-relaxed w-11/12 mb-12">
                 I'm a self-taught MERN stack developer driven by curiosity and a love for crafting innovative web applications. My journey as a developer has been driven by an insatiable curiosity and a strong desire to create meaningful and innovative web applications.
                 </p>
+                <HashLink to="#connect">
                 <button 
-                  onClick={() => console.log('connect')}
                   className="text-white font-bold text-xl flex items-center transition-all duration-300 hover:gap-6"
                 >
                   Let's Connect <ArrowRightCircle size={25} className="ml-2.5 transition-all duration-300" />
                 </button>
+                </HashLink>
               </div>}
             </TrackVisibility>
           </div>

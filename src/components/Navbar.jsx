@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import logo from "../assets/img/logo.svg";
-import navIcon1 from "../assets/img/nav-icon1.svg";
-import navIcon2 from "../assets/img/nav-icon2.svg";
-import navIcon3 from "../assets/img/nav-icon3.svg";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -41,40 +40,40 @@ export const NavBar = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-3">
-      <div className={`flex justify-between items-center ${scrolled ? "md:mt-0" : "md:mt-5"} md:mr-16`}>
+        <div className={`flex justify-between items-center ${scrolled ? "md:mt-0" : "md:mt-5"} md:mr-16`}>
           <Link to="/" className="flex items-center">
            
           </Link>
 
           <div className="hidden lg:flex items-center space-x-5 text-lg">
             <div className="hidden lg:flex space-x-6 lg:gap-5 lg:mr-5">
-            <NavLink
-              to="#home"
-              active={activeLink === "home"}
-              onClick={() => onUpdateActiveLink("home")}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="#skills"
-              active={activeLink === "skills"}
-              onClick={() => onUpdateActiveLink("skills")}
-            >
-              Skills
-            </NavLink>
-            <NavLink
-              to="#projects"
-              active={activeLink === "projects"}
-              onClick={() => onUpdateActiveLink("projects")}
-            >
-              Projects
-            </NavLink>
+              <NavLink
+                to="#home"
+                active={activeLink === "home"}
+                onClick={() => onUpdateActiveLink("home")}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="#skills"
+                active={activeLink === "skills"}
+                onClick={() => onUpdateActiveLink("skills")}
+              >
+                Skills
+              </NavLink>
+              <NavLink
+                to="#projects"
+                active={activeLink === "projects"}
+                onClick={() => onUpdateActiveLink("projects")}
+              >
+                Projects
+              </NavLink>
             </div>
 
             <div className="flex items-center space-x-2">
-              <SocialIcon href="#" src={navIcon1} />
-              <SocialIcon href="#" src={navIcon2} />
-              <SocialIcon href="#" src={navIcon3} />
+              <SocialIcon href="https://linkedin.com/in/pranavyadav41" icon={<FaLinkedin />} />
+              <SocialIcon href="https://github.com/pranavyadav41" icon={<FaGithub />} />
+              <SocialIcon href="https://leetcode.com/u/akpranavyadav/" icon={<SiLeetcode />} />
             </div>
 
             <HashLink to="#connect">
@@ -132,9 +131,9 @@ export const NavBar = () => {
             </NavLink>
 
             <div className="flex justify-center space-x-4 mt-4">
-              <SocialIcon href="#" src={navIcon1} />
-              <SocialIcon href="#" src={navIcon2} />
-              <SocialIcon href="#" src={navIcon3} />
+              <SocialIcon href="#" icon={<FaLinkedin />} />
+              <SocialIcon href="#" icon={<FaGithub />} />
+              <SocialIcon href="#" icon={<SiLeetcode />} />
             </div>
 
             <HashLink to="#connect" className="block mt-4">
@@ -164,7 +163,7 @@ const NavLink = ({ to, children, active, onClick, mobile }) => (
   </HashLink>
 );
 
-const SocialIcon = ({ href, src }) => (
+const SocialIcon = ({ href, icon }) => (
   <a
   
     href={href}
@@ -177,11 +176,11 @@ const SocialIcon = ({ href, src }) => (
       transition-all duration-300 ease-in-out
       group
       overflow-hidden
-      bg-gray-200
+      bg-gray-100
       bg-opacity-10
     "
   >
-    <img src={src} alt="" className="h-4 w-4 relative z-10 group-hover:invert" />
+    <span className="text-white text-xl relative z-10 group-hover:text-black">{icon}</span>
     <span className="
       absolute inset-0 
       w-0 group-hover:w-full 

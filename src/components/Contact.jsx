@@ -7,19 +7,19 @@ export const Contact = () => {
     {
       id: 1,
       icon: <FaGithub size={30} className="hover:text-[#99438A]" />,
-      url: "https://github.com/muhammedanas-ea",
+      url: "https://github.com/pranavyadav41",
       delay: 0.8,
     },
     {
       id: 2,
       icon: <FaLinkedin size={30} className="hover:text-[#99438A]" />,
-      url: "https://www.linkedin.com/in/muhammed-anas-44b218209/",
+      url: "https://linkedin.com/in/pranavyadav41",
       delay: 0.9,
     },
     {
       id: 3,
       icon: <SiLeetcode size={30} className="hover:text-[#99438A]" />,
-      url: "https://leetcode.com/muhammedanasea2000/",
+      url: "https://leetcode.com/u/akpranavyadav/",
       delay: 1,
     }
   ];
